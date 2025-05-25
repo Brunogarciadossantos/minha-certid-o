@@ -12,7 +12,7 @@
     .logo { font-size: 1.5em; margin-bottom: 1em; font-weight: bold; }
     textarea, input, select, button { width: 100%; padding: 10px; margin: 0.5em 0; border-radius: 5px; border: 1px solid #ccc; }
     button { background: #5e2b97; color: white; border: none; cursor: pointer; }
-    .certidao { background: #fffbe6; padding: 1em; margin-top: 1em; border: 2px dashed #c9a13b; text-align: left; }
+    .certidao { background: #fffbe6; padding: 1em; margin-top: 1em; border: 2px dashed #c9a13b; text-align: left; white-space: pre-line; }
     .share-buttons { margin-top: 1em; }
     .share-buttons button { margin: 0.3em; background: #eee; color: #222; }
   </style>
@@ -50,6 +50,18 @@
 
   <script>
     function gerarCertidao() {
+      const nomes = ["Santiago de la Rosa", "Valentina Sol", "Dom Rafael de León", "Isabella Fiorentino"];
+      const cidades = ["Sevilha, Espanha", "Cartago, Tunísia", "Kyoto, Japão", "Cusco, Peru", "Alexandria, Egito"];
+      const profissoes = ["Curandeiro dos sonhos", "Guardião das palavras antigas", "Cartógrafo e poeta das rotas escondidas", "Feiticeira dos ventos", "Alquimista dos aromas", "Contador de estrelas"];
+      const amores = ["Mateo, o marinheiro dos bilhetes escondidos", "Lys, a harpista das noites azuis", "Omar, o navegador das constelações perdidas"];
+      const orientacoes = {
+        "gay": "Amava livremente, mesmo em tempos de silêncio",
+        "hétero": "Buscava o amor no calor do comum, mas com alma rara",
+        "bissexual": "Coração aberto para todas as formas de amar",
+        "assexual": "Apreciava a companhia das almas sem desejo físico",
+        "pansexual": "Via beleza em cada espírito, sem fronteiras"
+      };
+
       const nome = document.getElementById('nome').value;
       const data = document.getElementById('dataNascimento').value;
       const sexo = document.getElementById('sexo').value;
@@ -58,29 +70,34 @@
       if (!nome || !data) return;
 
       const [ano, mes, dia] = data.split("-");
-      const arquivo = `${dia}${mes}${ano}-ES1523`;
+      const anoPassado = Math.floor(Math.random() * 1000) + 1000;
+      const local = cidades[Math.floor(Math.random() * cidades.length)];
+      const profissao = profissoes[Math.floor(Math.random() * profissoes.length)];
+      const par = amores[Math.floor(Math.random() * amores.length)];
+      const identidade = nomes[Math.floor(Math.random() * nomes.length)];
+      const arquivo = `${dia}${mes}${ano}-${anoPassado}`;
 
       const certidao = `
 📜 CERTIDÃO DE VIDA PASSADA
 Arquivo Cósmico Nº ${arquivo}
 
 🧭 Nome na vida passada:
-Santiago de la Rosa
+${identidade}
 
 🌍 Local de nascimento:
-Sevilha, Espanha
+${local}
 
 📆 Ano de nascimento:
-1523 d.C.
+${anoPassado} d.C.
 
 🧑‍🎨 Profissão exercida:
-Cartógrafo e poeta das rotas escondidas
+${profissao}
 
 💖 Orientação afetiva:
-${orientacao === 'gay' ? 'Amava livremente, mesmo em tempos de silêncio' : 'Acreditava no amor em suas múltiplas formas'}
+${orientacoes[orientacao]}
 
 🏳️‍🌈 Relacionamento marcante:
-Mateo, o marinheiro dos bilhetes escondidos
+${par}
 
 🗺️ Traços marcantes da personalidade:
 • Imaginação vívida
@@ -90,13 +107,13 @@ Mateo, o marinheiro dos bilhetes escondidos
 • Alma livre
 
 🕯️ Curiosidades registradas no Arquivo Cósmico:
-• Criou o mapa secreto da Libertália do Sul
-• Escondia poesias nos traços de suas cartas náuticas
+• Criou rituais que atravessaram os séculos
+• Deixou mensagens escondidas em objetos do cotidiano
 
 🔄 Reencarnação Atual:
 ${nome}
-Nascido em ${dia} de ${mes} de ${ano}
-Carrega o dom da escuta, da arte de orientar e transformar com afeto.
+Nascido em ${dia}/${mes}/${ano}
+Carrega o dom da escuta e da orientação com afeto.
 
 📌 Assinatura do Guardião dos Registros Lúdicos:
 🌠 Sir Altharion, o Observador dos Ciclos Estelares
