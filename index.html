@@ -1,29 +1,55 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Minha Certidão e História de Vida Passada</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>🔮 Minha Certidão e História de Vida Passada 🔮</h1>
-    <p class="intro">As estrelas guardam segredos antigos. Preencha o formulário e descubra quem você foi em outra vida.</p>
+  <header>
+    <img src="logo_mistica.png" alt="Logo Mística" class="logo"/>
+    <h1>Minha Certidão e História de Vida Passada</h1>
+    <p>Descubra os mistérios ocultos da sua alma em outras eras...</p>
+  </header>
+
+  <main>
     <form id="formulario">
-      <input type="text" placeholder="Nome completo" id="nome" required>
+      <label for="nome">Nome completo:</label>
+      <input type="text" id="nome" required />
+
+      <label for="genero">Gênero:</label>
       <select id="genero">
-        <option value="masculino">Masculino</option>
-        <option value="feminino">Feminino</option>
-        <option value="outro">Outro</option>
+        <option value="Masculino">Masculino</option>
+        <option value="Feminino">Feminino</option>
+        <option value="Outro">Outro</option>
       </select>
-      <input type="text" placeholder="Orientação sexual" id="sexualidade" required>
-      <input type="date" id="dataNascimento" required>
-      <input type="text" placeholder="Cidade e país de nascimento" id="localNascimento" required>
-      <button type="submit">Revelar minha vida passada</button>
+
+      <label for="sexualidade">Orientação afetiva:</label>
+      <select id="sexualidade">
+        <option value="Heterossexual">Heterossexual</option>
+        <option value="Gay">Gay</option>
+        <option value="Lésbica">Lésbica</option>
+        <option value="Bissexual">Bissexual</option>
+        <option value="Assexual">Assexual</option>
+        <option value="Pansexual">Pansexual</option>
+        <option value="Prefiro não dizer">Prefiro não dizer</option>
+      </select>
+
+      <label for="dataNascimento">Data de nascimento:</label>
+      <input type="date" id="dataNascimento" required />
+
+      <button type="submit">Descobrir minha vida passada</button>
     </form>
+
     <div id="resultado"></div>
-  </div>
+  </main>
+
+  <footer>
+    <p>🌌 Este é um projeto lúdico e mágico - Bruno Garcia dos Santos © 2025 🌌</p>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
