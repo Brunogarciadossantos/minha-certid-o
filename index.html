@@ -1,55 +1,134 @@
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Minha Certidão e História de Vida Passada</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: 'Georgia', serif; background: #fdf6e3; padding: 2em; text-align: center; }
+    .container { max-width: 700px; margin: auto; background: white; padding: 2em; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
+    h1 { font-size: 1.8em; color: #5e2b97; }
+    .logo { font-size: 1.5em; margin-bottom: 1em; font-weight: bold; }
+    textarea, input, select, button { width: 100%; padding: 10px; margin: 0.5em 0; border-radius: 5px; border: 1px solid #ccc; }
+    button { background: #5e2b97; color: white; border: none; cursor: pointer; }
+    .certidao { background: #fffbe6; padding: 1em; margin-top: 1em; border: 2px dashed #c9a13b; text-align: left; }
+    .share-buttons { margin-top: 1em; }
+    .share-buttons button { margin: 0.3em; background: #eee; color: #222; }
+  </style>
 </head>
 <body>
-  <header>
-    <img src="logo_mistica.png" alt="Logo Mística" class="logo"/>
-    <h1>Minha Certidão e História de Vida Passada</h1>
-    <p>Descubra os mistérios ocultos da sua alma em outras eras...</p>
-  </header>
-
-  <main>
+  <div class="container">
+    <div class="logo">🔮 Minha Certidão e História de Vida Passada</div>
     <form id="formulario">
-      <label for="nome">Nome completo:</label>
-      <input type="text" id="nome" required />
-
-      <label for="genero">Gênero:</label>
-      <select id="genero">
-        <option value="Masculino">Masculino</option>
-        <option value="Feminino">Feminino</option>
-        <option value="Outro">Outro</option>
-      </select>
-
-      <label for="sexualidade">Orientação afetiva:</label>
-      <select id="sexualidade">
-        <option value="Heterossexual">Heterossexual</option>
-        <option value="Gay">Gay</option>
-        <option value="Lésbica">Lésbica</option>
-        <option value="Bissexual">Bissexual</option>
-        <option value="Assexual">Assexual</option>
-        <option value="Pansexual">Pansexual</option>
-        <option value="Prefiro não dizer">Prefiro não dizer</option>
-      </select>
-
-      <label for="dataNascimento">Data de nascimento:</label>
+      <input type="text" id="nome" placeholder="Seu nome completo" required />
       <input type="date" id="dataNascimento" required />
-
-      <button type="submit">Descobrir minha vida passada</button>
+      <select id="sexo">
+        <option value="masculino">Masculino</option>
+        <option value="feminino">Feminino</option>
+        <option value="outro">Outro</option>
+      </select>
+      <select id="orientacao">
+        <option value="gay">Gay</option>
+        <option value="hétero">Hétero</option>
+        <option value="bissexual">Bissexual</option>
+        <option value="assexual">Assexual</option>
+        <option value="pansexual">Pansexual</option>
+      </select>
+      <button type="button" onclick="gerarCertidao()">🔍 Descobrir minha vida passada</button>
     </form>
 
-    <div id="resultado"></div>
-  </main>
+    <div id="certidao" class="certidao" style="display:none;"></div>
 
-  <footer>
-    <p>🌌 Este é um projeto lúdico e mágico - Bruno Garcia dos Santos © 2025 🌌</p>
-  </footer>
+    <div class="share-buttons" id="shareArea" style="display:none;">
+      <button onclick="compartilharWhatsApp()">📲 WhatsApp</button>
+      <button onclick="compartilharLink()">🔗 Copiar Link</button>
+      <button onclick="novaCertidao()">✨ Faça a sua também</button>
+      <button onclick="baixarImagem()">📥 Baixar como imagem</button>
+    </div>
+  </div>
 
-  <script src="script.js"></script>
+  <script>
+    function gerarCertidao() {
+      const nome = document.getElementById('nome').value;
+      const data = document.getElementById('dataNascimento').value;
+      const sexo = document.getElementById('sexo').value;
+      const orientacao = document.getElementById('orientacao').value;
+
+      if (!nome || !data) return;
+
+      const [ano, mes, dia] = data.split("-");
+      const arquivo = `${dia}${mes}${ano}-ES1523`;
+
+      const certidao = `
+📜 CERTIDÃO DE VIDA PASSADA
+Arquivo Cósmico Nº ${arquivo}
+
+🧭 Nome na vida passada:
+Santiago de la Rosa
+
+🌍 Local de nascimento:
+Sevilha, Espanha
+
+📆 Ano de nascimento:
+1523 d.C.
+
+🧑‍🎨 Profissão exercida:
+Cartógrafo e poeta das rotas escondidas
+
+💖 Orientação afetiva:
+${orientacao === 'gay' ? 'Amava livremente, mesmo em tempos de silêncio' : 'Acreditava no amor em suas múltiplas formas'}
+
+🏳️‍🌈 Relacionamento marcante:
+Mateo, o marinheiro dos bilhetes escondidos
+
+🗺️ Traços marcantes da personalidade:
+• Imaginação vívida
+• Coração compassivo
+• Olhar sonhador
+• Mente estrategista
+• Alma livre
+
+🕯️ Curiosidades registradas no Arquivo Cósmico:
+• Criou o mapa secreto da Libertália do Sul
+• Escondia poesias nos traços de suas cartas náuticas
+
+🔄 Reencarnação Atual:
+${nome}
+Nascido em ${dia} de ${mes} de ${ano}
+Carrega o dom da escuta, da arte de orientar e transformar com afeto.
+
+📌 Assinatura do Guardião dos Registros Lúdicos:
+🌠 Sir Altharion, o Observador dos Ciclos Estelares
+
+📅 Emitido em: ${new Date().toLocaleDateString()}
+📍 Dimensão Lúdica, Setor dos Sonhadores Antigos`;
+
+      document.getElementById("certidao").innerText = certidao;
+      document.getElementById("certidao").style.display = "block";
+      document.getElementById("shareArea").style.display = "block";
+    }
+
+    function compartilharWhatsApp() {
+      const texto = document.getElementById("certidao").innerText;
+      window.open(`https://wa.me/?text=${encodeURIComponent(texto)}`, '_blank');
+    }
+
+    function compartilharLink() {
+      navigator.clipboard.writeText(window.location.href);
+      alert("Link copiado para a área de transferência!");
+    }
+
+    function novaCertidao() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.getElementById("formulario").reset();
+      document.getElementById("certidao").style.display = "none";
+      document.getElementById("shareArea").style.display = "none";
+    }
+
+    function baixarImagem() {
+      alert("🔧 Esta função será ativada na próxima versão. Aguarde! 😊");
+    }
+  </script>
 </body>
 </html>
