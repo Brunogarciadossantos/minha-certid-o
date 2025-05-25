@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Certidão e História de Vida Passada</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🔮 Minha Certidão e História de Vida Passada 🔮</h1>
+    <p class="intro">As estrelas guardam segredos antigos. Preencha o formulário e descubra quem você foi em outra vida.</p>
+    <form id="formulario">
+      <input type="text" placeholder="Nome completo" id="nome" required>
+      <select id="genero">
+        <option value="masculino">Masculino</option>
+        <option value="feminino">Feminino</option>
+        <option value="outro">Outro</option>
+      </select>
+      <input type="text" placeholder="Orientação sexual" id="sexualidade" required>
+      <input type="date" id="dataNascimento" required>
+      <input type="text" placeholder="Cidade e país de nascimento" id="localNascimento" required>
+      <button type="submit">Revelar minha vida passada</button>
+    </form>
+    <div id="resultado"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
